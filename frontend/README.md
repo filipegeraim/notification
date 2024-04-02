@@ -1,4 +1,4 @@
-# Notification Test
+# Notification Test (Frontend)
 
 ## 📝 Scope
 

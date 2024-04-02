@@ -1,5 +1,5 @@
 
-# Notification Test
+# Notification Test (Backend)
 
 ## 📝 Scope
 We have to create a notification system that has the ability to receive a message and depending on
