@@ -2,7 +2,7 @@
   "name": "notification-test-backend",
   "version": "1.0.0",
   "scripts": {
-    "db:migrate": "prisma migrate dev --schema=src/infra/db/prisma/schema.prisma && tsup src/infra/db/prisma/seed.ts && node dist/seed.js",
+    "db:migrate": "prisma migrate dev --schema=src/infra/db/prisma/schema.prisma",
     "db:seed": "tsup src/infra/db/prisma/seed.ts && node dist/seed.js",
     "dev": "prisma generate --schema=src/infra/db/prisma/schema.prisma && tsup src/main/server.ts --watch --onSuccess 'node dist/server.js'",
     "test": "jest"
