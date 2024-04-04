@@ -23,13 +23,7 @@ export default async function LogsList() {
           align: 'center',
           name: 'user.category',
           title: 'Channel',
-          render: (row) => (
-            <Stack justifyContent={'center'} alignItems={'center'}>
-              {row.user.channel.map((x, i) => (
-                <Chip key={i} label={x.toUpperCase()} />
-              ))}
-            </Stack>
-          ),
+          render: (row) => <Chip label={row.channel.toUpperCase()} />,
           minWidth: 200,
         },
         {

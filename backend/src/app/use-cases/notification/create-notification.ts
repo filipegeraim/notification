@@ -1,3 +1,4 @@
+import type { SendNotificationUseCase } from '@/app/use-cases/send-notification/send-notification';
 import { ExistingError } from '@/domain/exceptions/existing-error';
 import type { CreateNotificationDto, NotificationDto } from '@/domain/models/notification';
 import type { NotificationHistoryRepository } from '@/domain/repositories/notification-history-repository';
@@ -10,7 +11,7 @@ export class CreateNotificationUseCase implements UseCase {
   constructor(
     private readonly notificationRepository: NotificationRepository,
     private readonly userRepository: UserRepository,
-    private readonly sendNotificationRepository: SendNotificationRepository,
+    private readonly sendNotificationUseCase: SendNotificationUseCase,
   ) {}
 
   async perform(entity: CreateNotificationDto): Promise<NotificationDto> {
@@ -19,7 +20,7 @@ export class CreateNotificationUseCase implements UseCase {
       description: entity.description,
     });
     const users = await this.userRepository.listByCategory(entity.category);
-    await this.sendNotificationRepository.send(newNotification, users);
+    await this.sendNotificationUseCase.perform(newNotification, users);
     return newNotification;
   }
 }

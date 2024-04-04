@@ -24,6 +24,7 @@ export class PrismaNotificationHistoryRepository implements NotificationHistoryR
   async create(entity: CreateNotificationHistoryDto): Promise<NotificationHistoryDto> {
     const created = await prismaClient.notificationHistory.create({
       data: {
+        channel: entity.channel,
         notificationId: entity.notification.id,
         userId: entity.user.id,
       },

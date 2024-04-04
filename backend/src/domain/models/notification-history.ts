@@ -1,3 +1,4 @@
+import { Channel } from '@/domain/models/channel';
 import { HasCreatedAt } from '@/domain/models/createdAt';
 import { Notification } from '@/domain/models/notification';
 import { User } from '@/domain/models/user';
@@ -5,6 +6,7 @@ import { z } from 'zod';
 
 export const NotificationHistory = z
   .object({
+    channel: z.nativeEnum(Channel),
     notification: Notification,
     user: User,
   })

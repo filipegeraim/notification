@@ -4,7 +4,6 @@ import type { HttpResponse } from '@/presentation/protocols/http-response';
 import { StatusCodes, getReasonPhrase } from 'http-status-codes';
 
 export function handlerError(err: any): HttpResponse<HttpError> {
-  console.log(err);
   if (err instanceof ExistingError) {
     return {
       statusCode: err.statusCode,
